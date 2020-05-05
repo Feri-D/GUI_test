@@ -1,13 +1,17 @@
 import os
 import pyautogui
 import time
+import openfile
+#from openfile import *
+from setVerdict import *
 
-sleepTime=5
+sleepTime=1
 loopTime=10
-result=['pass','fail','inconclusive']
+finalVerdict=initVerdict()
 
 print('start')
-os.startfile ('C:\\Users\\fdemjanics\\Downloads\\esetlogcollector.exe')
+openfile.openUpLogCollector()
+#os.startfile ('C:\\Users\\fdemjanics\\Downloads\\esetlogcollector.exe')
 time.sleep (sleepTime)
 print('sleeptime')
 print(pyautogui.locateCenterOnScreen('Collect.png'))
@@ -16,7 +20,8 @@ print('click Collect')
 time.sleep (sleepTime)
 if (pyautogui.locateCenterOnScreen('Overwrite.png')):
     print('Archive exists')
-    result='inconclusive'
+    finalVerdict=setVerdict(finalVerdict,'inconclusive')
+    #result='inconclusive'
     time.sleep (sleepTime)
     print(pyautogui.locateCenterOnScreen('Yes.png'))
     pyautogui.click(pyautogui.locateCenterOnScreen('Yes.png'))
@@ -31,7 +36,7 @@ else:
     #time.sleep (sleepTime)
     pyautogui.click(pyautogui.locateCenterOnScreen('OK.png'))
     print('click OK')
-    result='pass'
+    finalVerdict=setVerdict(finalVerdict,'pass')
 time.sleep (sleepTime)
 print(pyautogui.locateCenterOnScreen('Close.png'))
 pyautogui.click(pyautogui.locateCenterOnScreen('Close.png'))
@@ -40,7 +45,6 @@ print('click Close')
 #pyautogui.moveTo(pyautogui.locateCenterOnScreen('Collect.png'))
 #print('move')
 time.sleep (sleepTime)
-#os.system('TASKKILL /IM esetlogcollector.exe')
-print(result)
+print (finalVerdict)
 print('end')
 
