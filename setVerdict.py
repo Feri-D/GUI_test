@@ -15,6 +15,3 @@ def setVerdict (finalVerdict,newVerdict):
         if (finalVerdict=='fail'):
             return('fail')
     return ('error')
-
-#def getVerdict():
-#    return(finalVerdict)
