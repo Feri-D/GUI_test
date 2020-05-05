@@ -1,4 +1,4 @@
-from setVerdict import *
+from setVerdict import setVerdict
 
 finalVerdict='default'
 finalVerdict = setVerdict(finalVerdict,'pass')
