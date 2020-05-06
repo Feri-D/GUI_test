@@ -1,9 +1,5 @@
-#import os
-#import pyautogui
-#import time
 import openfile
 
-#from openfile import *
 from setVerdict import *
 from handleOverWrite import overWriteRequest
 from findAndClick import findAndClick, findTarget, findAndSelect
@@ -33,7 +29,7 @@ while((findTarget(loopTime,'Done.png'))==None):
         print('timeout')
         break
 else:
-    print('finished')
+    print('finished log collection')
     findAndClick(sleepTime,'OK.png')
     finalVerdict=setVerdict(finalVerdict,'pass')
 
