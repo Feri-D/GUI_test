@@ -13,6 +13,7 @@ def findTarget(delay,target):
 
 def findAndSelect(delay,target):
     time.sleep (delay)
+    #print(pyautogui.locateCenterOnScreen(target))
     pyautogui.moveTo(pyautogui.locateCenterOnScreen(target))
     pyautogui.click()
     time.sleep (delay)
